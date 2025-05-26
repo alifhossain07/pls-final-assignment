@@ -2,45 +2,40 @@
 
 ## Overview
 
-This project implements a **Recursive Descent Parser (RDP)** in **C** to parse control structures like `if-else`, `while` loops, and arithmetic expressions with nested brackets. The parser also handles a special identifier, `LTD`, which represents the last three digits of a student's ID.
+This project implements a **Recursive Descent Parser** in **C** for parsing control structures (`if-else`, `while`), arithmetic expressions, and a special identifier `LTD`. It validates syntax including nested blocks and expressions with proper error handling.
 
-## Compilation Instructions (Using CodeBlocks)
+## Compilation & Running
 
-1. **Open CodeBlocks** and create a **new Console Application** project in C.
-2. **Copy and paste** the code into the `main.c` file.
-3. **Build the project** by pressing `Ctrl+F9`.
-4. **Run the project** by pressing `Ctrl+F10`.
+1. Open CodeBlocks or any C compiler.
+2. Copy-paste the code into `main.c`.
+3. Build and run the program.
+4. Enter your code inside `{}` when prompted.
+5. Type `exit` to quit.
 
-## Runtime Instructions
+## Valid Test Cases
 
-1. **Enter code** inside `{}` when prompted, for example:
-
-   { if (a == LTD) { a + b; } }
-
-The program will parse the code and show either a success message or an error.
-
-## Test Cases
-
-Valid Test Cases:
-
-Simple Arithmetic Expression:
+```c
 { a + b; }
+{ if (x == LTD) { y + 1; } else { y - 1; } }
+{ while (x > LTD) { x - 1; } }
+```
 
-If Statement with LTD:
-{ if (LTD == 123) { a + b; } }
+## Invalid Test Cases
 
-While Loop with LTD:
-{ while (a < 100) { a * LTD; } }
+```c
+{ x = 5 }               // Missing semicolon
+{ if (x > 3 { y = 1; }  // Unmatched parentheses
+{ x = $5; }             // Invalid token
+```
 
-Invalid Test Cases:
+## Features
 
-Missing Semicolon:
-{ a + b }
-Error: Missing semicolon.
+- Supports `if`, `else`, `while` statements.
+- Parses arithmetic expressions with `+`, `-`, `*`, `/`.
+- Recognizes relational operators (`==`, `!=`, `<`, `<=`, `>`, `>=`).
+- Handles a special token `LTD`.
+- Reports syntax errors with clear messages.
 
-Mismatched Brackets:
-{ if (a == b) { a + b; }
-Error: Mismatched brackets.
+## Conclusion
 
-Conclusion
-This project implements a Recursive Descent Parser that handles control structures, arithmetic expressions, and a special identifier LTD. The parser performs error checking and evaluates expressions correctly. It has been tested with various valid and invalid test cases to ensure its functionality
+The parser successfully analyzes structured code snippets with nested control flows and expressions, enforcing syntax correctness with detailed error feedback.
